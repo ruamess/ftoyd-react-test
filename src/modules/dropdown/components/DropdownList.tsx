@@ -17,8 +17,9 @@ const DropdownList: FC<DropdownListProps> = ({
       <li
         key={opt}
         onClick={() => onSelect(opt)}
-        className={`cursor-pointer px-4 py-3 transition-all ${selected === opt ? "bg-white/20 text-white" : "hover:bg-white/10"
-          }`}
+        className={`cursor-pointer px-4 py-3 transition-all ${
+          selected === opt ? "bg-white/20 text-white" : "hover:bg-white/10"
+        }`}
       >
         {getOptionLabel(opt)}
       </li>

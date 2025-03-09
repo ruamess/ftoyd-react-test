@@ -36,7 +36,10 @@ const MatchCard: FC<IMatchCard> = ({ match }) => {
               transition={{ duration: 0.3, ease: "easeOut" }}
               className="overflow-hidden"
             >
-              <m.div layout className="my-4 flex w-full flex-col items-stretch gap-2 md:flex-row md:justify-between md:gap-8">
+              <m.div
+                layout
+                className="my-4 flex w-full flex-col items-stretch gap-2 md:flex-row md:justify-between md:gap-8"
+              >
                 <TeamInfo
                   players={homeTeam.players}
                   place={homeTeam.place}

@@ -59,7 +59,11 @@ export const useGlobalStore = create<IGlobalStore>((set, get) => ({
   connectWebSocket: () => {
     const { setMatches, setError, ws } = get()
 
-    if (ws?.readyState === WebSocket.OPEN || ws?.readyState === WebSocket.CONNECTING) return
+    if (
+      ws?.readyState === WebSocket.OPEN ||
+      ws?.readyState === WebSocket.CONNECTING
+    )
+      return
 
     try {
       const newWs = new WebSocket(WS_URL)
@@ -91,5 +95,5 @@ export const useGlobalStore = create<IGlobalStore>((set, get) => ({
     } catch {
       setError("Ошибка WebSocket: сервер недоступен")
     }
-  }
+  },
 }))

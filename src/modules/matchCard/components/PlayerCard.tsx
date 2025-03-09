@@ -8,7 +8,7 @@ const PlayerCard: FC<IPlayer> = ({ kills, username }) => {
         <img
           src="matchCard/playerAvatar.png"
           alt="Avatar"
-          className="w-8 lg:w-10 aspect-square shrink-0"
+          className="aspect-square w-8 shrink-0 lg:w-10"
         />
         <span className="max-w-[150px] overflow-hidden truncate text-ellipsis whitespace-nowrap md:max-w-[200px]">
           {username}

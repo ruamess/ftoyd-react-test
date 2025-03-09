@@ -37,7 +37,11 @@ const Dropdown: FC<DropdownProps> = ({ options }) => {
   return (
     <LazyMotion features={domAnimation}>
       <m.div ref={dropdownRef} className="relative w-full md:w-96 md:max-w-44">
-        <DropdownToggle isOpen={isOpen} selected={selected} toggle={toggleDropdown} />
+        <DropdownToggle
+          isOpen={isOpen}
+          selected={selected}
+          toggle={toggleDropdown}
+        />
 
         <AnimatePresence>
           {isOpen && (
@@ -48,7 +52,11 @@ const Dropdown: FC<DropdownProps> = ({ options }) => {
               transition={{ duration: 0.2, ease: "easeOut" }}
               className="absolute left-0 top-full mt-2 w-full rounded-md bg-white shadow-lg"
             >
-              <DropdownList options={dropdownOptions} selected={selected} onSelect={handleSelect} />
+              <DropdownList
+                options={dropdownOptions}
+                selected={selected}
+                onSelect={handleSelect}
+              />
             </m.div>
           )}
         </AnimatePresence>

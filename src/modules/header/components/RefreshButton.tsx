@@ -16,18 +16,21 @@ const RefreshButton = () => {
       <button
         ref={buttonRef}
         disabled={loading}
-        className="group flex h-14 w-full items-center justify-center gap-3 rounded-md bg-rose
-          hover:bg-refresh-button-hover disabled:bg-refresh-button-inactive transition-all md:max-w-52"
+        className="group flex h-14 w-full items-center justify-center gap-3 rounded-md bg-rose transition-all hover:bg-refresh-button-hover disabled:bg-refresh-button-inactive md:max-w-52"
         onClick={handleClick}
-        onTouchStart={(e) => e.currentTarget.classList.remove("hover:bg-refresh-button-hover")}
+        onTouchStart={(e) =>
+          e.currentTarget.classList.remove("hover:bg-refresh-button-hover")
+        }
       >
         <span className="text-lg font-semibold">Обновить</span>
         <m.img
           src="refresh.svg"
           alt="Refresh"
-          className="w-6 aspect-square"
+          className="aspect-square w-6"
           animate={loading ? { rotate: -360 } : { rotate: 0 }}
-          transition={loading ? { repeat: Infinity, duration: 1, ease: "linear" } : {}}
+          transition={
+            loading ? { repeat: Infinity, duration: 1, ease: "linear" } : {}
+          }
         />
       </button>
     </LazyMotion>

@@ -11,7 +11,7 @@ const TeamName: FC<TeamNameProps> = ({ name, reverse = false }) => {
       key="img"
       src="matchCard/teamIcon.svg"
       alt="Team"
-      className="w-7 sm:w-8 md:w-10 lg:w-12 aspect-square"
+      className="aspect-square w-7 sm:w-8 md:w-10 lg:w-12"
     />,
     <span key="text">{name}</span>,
   ]

@@ -31,8 +31,14 @@ const ErrorAlert = () => {
             transition={{ duration: 0.3, ease: "easeOut" }}
             className="absolute z-10 mx-4 flex h-14 w-fit items-center justify-center gap-2 rounded-md bg-card-item px-6 shadow-lg"
           >
-            <img src="warningAlert.svg" alt="Warning" className="w-7 aspect-square" />
-            <span className="text-center text-sm md:text-lg">Ошибка: {error}</span>
+            <img
+              src="warningAlert.svg"
+              alt="Warning"
+              className="aspect-square w-7"
+            />
+            <span className="text-center text-sm md:text-lg">
+              Ошибка: {error}
+            </span>
           </m.div>
         )}
       </AnimatePresence>
