@@ -3,7 +3,7 @@ import { useSearchParams } from "react-router-dom"
 import { LazyMotion, domAnimation, m, AnimatePresence } from "motion/react"
 import { DEFAULT_OPTION, useOutsideClick } from "../utils"
 import DropdownToggle from "./DropdownToggle"
-import DropdownList from "./OptionsList"
+import DropdownList from "./DropdownList"
 
 interface DropdownProps {
   options: string[]
