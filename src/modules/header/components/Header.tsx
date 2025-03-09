@@ -3,7 +3,7 @@ import RefreshButton from "./RefreshButton"
 import Logo from "./Logo"
 
 const Header = () => {
-  const options = ["Live", "Finished", "Ongoing", "Scheduled"]
+  const options = ["Finished", "Ongoing", "Scheduled"]
 
   return (
     <div className="flex w-full flex-col justify-between gap-2 md:flex-row md:gap-3">
