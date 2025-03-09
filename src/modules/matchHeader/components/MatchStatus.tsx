@@ -1,6 +1,6 @@
 import { FC } from "react"
 import { getStatusColorClass } from "../utils"
-import { motion } from "framer-motion"
+import { LazyMotion, domAnimation, m } from "motion/react"
 
 interface MatchStatusProps {
   homeScore: number
@@ -15,15 +15,17 @@ const MatchStatus: FC<MatchStatusProps> = ({
 }) => {
   return (
     <div className="flex flex-col gap-1 text-center">
-      <motion.span
-        key={`${homeScore}-${awayScore}`}
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.25, ease: "easeOut" }}
-        className="text-lg font-semibold"
-      >
-        {homeScore}:{awayScore}
-      </motion.span>
+      <LazyMotion features={domAnimation} strict>
+        <m.span
+          key={`${homeScore}-${awayScore}`}
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.25, ease: "easeOut" }}
+          className="text-lg font-semibold"
+        >
+          {homeScore}:{awayScore}
+        </m.span>
+      </LazyMotion>
       <span
         className={`rounded-sm px-2 py-1 text-xs md:px-6 ${getStatusColorClass(status)}`}
       >
