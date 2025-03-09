@@ -12,7 +12,7 @@ const DropdownList: FC<DropdownListProps> = ({
   selected,
   onSelect,
 }) => (
-  <ul className="absolute z-10 mt-2 w-full overflow-hidden rounded-b-md bg-ui-item shadow-md">
+  <ul className="absolute z-10 w-full overflow-hidden rounded-b-md bg-ui-item shadow-md">
     {options.map((opt) => (
       <li
         key={opt}
