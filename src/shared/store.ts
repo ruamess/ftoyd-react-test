@@ -93,7 +93,7 @@ export const useGlobalStore = create<IGlobalStore>((set, get) => ({
 
       set({ ws: newWs })
     } catch {
-      setError("Ошибка WebSocket: сервер недоступен")
+      setError(WS_ERROR_MESSAGE)
     }
   },
 }))
