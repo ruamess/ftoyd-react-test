@@ -16,9 +16,7 @@ export const useGlobalStore = create<IGlobalStore>((set, get) => ({
   ws: null,
 
   setMatches: (matches) => set({ matches }),
-
   setLoading: (loading) => set({ loading }),
-
   setError: (error) => set({ error }),
 
   filteredMatches: (statusFilter) => {
@@ -61,37 +59,37 @@ export const useGlobalStore = create<IGlobalStore>((set, get) => ({
   connectWebSocket: () => {
     const { setMatches, setError, ws } = get()
 
-    if (
-      ws?.readyState === WebSocket.OPEN ||
-      ws?.readyState === WebSocket.CONNECTING
-    )
-      return
+    if (ws?.readyState === WebSocket.OPEN || ws?.readyState === WebSocket.CONNECTING) return
 
-    const newWs = new WebSocket(WS_URL)
+    try {
+      const newWs = new WebSocket(WS_URL)
 
-    newWs.onopen = () => setError(null)
+      newWs.onopen = () => setError(null)
 
-    newWs.onmessage = (event) => {
-      try {
-        const { type, data } = JSON.parse(event.data)
-        if (type === "update_matches") setMatches(data)
-      } catch {
-        setError(WS_ERROR_MESSAGE)
+      newWs.onmessage = (event) => {
+        try {
+          const { type, data } = JSON.parse(event.data)
+          if (type === "update_matches") setMatches(data)
+        } catch {
+          setError(WS_ERROR_MESSAGE)
+        }
       }
-    }
 
-    newWs.onerror = () => {
-      setError(WS_ERROR_MESSAGE)
-      setTimeout(() => get().connectWebSocket(), RECONNECT_INTERVAL)
-    }
-
-    newWs.onclose = (event) => {
-      set({ ws: null })
-      if (!event.wasClean) {
+      newWs.onerror = () => {
+        setError(WS_ERROR_MESSAGE)
         setTimeout(() => get().connectWebSocket(), RECONNECT_INTERVAL)
       }
-    }
 
-    set({ ws: newWs })
-  },
+      newWs.onclose = (event) => {
+        set({ ws: null })
+        if (!event.wasClean) {
+          setTimeout(() => get().connectWebSocket(), RECONNECT_INTERVAL)
+        }
+      }
+
+      set({ ws: newWs })
+    } catch {
+      setError("Ошибка WebSocket: сервер недоступен")
+    }
+  }
 }))
