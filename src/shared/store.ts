@@ -1,7 +1,7 @@
 import { create } from "zustand"
 import axios from "axios"
-import { IGlobalStore } from "./interfaces"
 import ENV from "../../env.json"
+import { IGlobalStore } from "./interfaces"
 
 const API_URL = `https://${ENV.API_URL || ""}/fronttemp`
 const WS_URL = `wss://${ENV.API_URL || ""}/ws`

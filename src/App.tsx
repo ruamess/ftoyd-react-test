@@ -1,11 +1,11 @@
 import { useEffect } from "react"
 import { useSearchParams } from "react-router-dom"
-import { useGlobalStore } from "@shared/store"
+import MatchCardsSkeleton from "@components/MatchCardsSkeleton"
+import MatchCardsNotFound from "@components/MatchCardsNotFound"
 import Alert from "@components/ErrorAlert"
 import { MatchCard } from "@modules/matchCard"
 import { Header } from "@modules/header"
-import MatchCardsSkeleton from "@components/MatchCardsSkeleton"
-import MatchCardsNotFound from "@components/MatchCardsNotFound"
+import { useGlobalStore } from "@shared/store"
 
 const App = () => {
   const { fetchMatches, filteredMatches, loading } = useGlobalStore()

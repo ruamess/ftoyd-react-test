@@ -1,6 +1,6 @@
 import { FC } from "react"
-import { getStatusColorClass } from "../utils"
 import { LazyMotion, domAnimation, m } from "motion/react"
+import { getStatusColorClass } from "../utils"
 
 interface MatchStatusProps {
   homeScore: number

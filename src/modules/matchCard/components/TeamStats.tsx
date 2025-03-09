@@ -1,6 +1,6 @@
 import { FC } from "react"
-import { getFormattedPoints } from "../utils"
 import { ITeamStats } from "@shared/interfaces"
+import { getFormattedPoints } from "../utils"
 
 const TeamStats: FC<ITeamStats> = ({ points, place, total_kills }) => {
   return (

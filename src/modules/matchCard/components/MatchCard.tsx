@@ -1,7 +1,7 @@
 import { FC, useState } from "react"
 import { LazyMotion, domAnimation, m, AnimatePresence } from "motion/react"
-import { IMatchCard } from "@shared/interfaces"
 import { MatchHeader } from "@modules/matchHeader"
+import { IMatchCard } from "@shared/interfaces"
 import VSLine from "./VSLine"
 import TeamInfo from "./TeamInfo"
 import ExpandArrow from "./ExpandArrow"
