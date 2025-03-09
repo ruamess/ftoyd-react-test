@@ -33,11 +33,9 @@ export const useGlobalStore = create<IGlobalStore>((set, get) => ({
 
     setLoading(true)
 
-    if (
-      ws?.readyState === WebSocket.OPEN ||
-      ws?.readyState === WebSocket.CONNECTING
-    ) {
+    if (ws?.readyState === WebSocket.OPEN) {
       ws.close()
+      await new Promise((resolve) => (ws.onclose = resolve))
       set({ ws: null })
     }
 
